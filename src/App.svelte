@@ -1,6 +1,8 @@
 <script>
+  import { Router, Route } from "svelte-navigator";
   import PokedexHeader from "./core/PokedexHeader.svelte";
-  import Pokemons from "./features/PokemonsGrid.svelte";
+  import PokemonsGrid from "./features/PokemonsGrid.svelte";
+  import PokemonDetails from "./features/PokemonDetails.svelte";
   let pokemons;
 </script>
 
@@ -10,7 +12,7 @@
 <div class="main-panel">
   <span>&#10148;</span>
   <div class="pokemons-container">
-    <Pokemons {pokemons} />
+    <PokemonsGrid {pokemons} />
   </div>
 </div>
 
@@ -31,6 +33,7 @@
   .main-panel .pokemons-container {
     overflow: auto;
     height: 100%;
+    width: 100%;
   }
 
   .main-panel span {
@@ -72,6 +75,7 @@
       background: -webkit-linear-gradient(#f15a24, #edb825);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+	  margin-right: 4px;
     }
   }
 </style>

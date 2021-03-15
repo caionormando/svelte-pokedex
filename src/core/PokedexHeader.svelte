@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <div class="header-container">
   <div class="circles-container">
     <div class="blue-circle" />
@@ -107,6 +104,7 @@
     left: 215px;
     top: 15px;
   }
+  /* ##################################################################DESKTOP VERSION############################################################################################## */
 
   @media (min-width: 768px) {
     .blue-circle {
