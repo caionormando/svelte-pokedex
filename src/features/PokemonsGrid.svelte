@@ -1,4 +1,6 @@
 <script>
+  import { RingLoader } from "svelte-loading-spinners";
+
   import { onMount } from "svelte";
   import Pokemon from "./Pokemon.svelte";
 
@@ -16,14 +18,12 @@
 <div class="cards-container">
   {#if pokemons}
     {#each pokemons as pokemon}
-      <!-- <ul> -->
-        <!-- <li> -->
-          <Pokemon {pokemon} />
-        <!-- </li> -->
-      <!-- </ul> -->
+      <Pokemon {pokemon} />
     {/each}
   {:else}
-    <p class="loading">loading...</p>
+    <div class="spinner-container">
+      <RingLoader size="100" color="#000" unit="px" duration="1s" />
+    </div>
   {/if}
 </div>
 
@@ -34,9 +34,8 @@
     justify-content: center;
     height: 100%;
   }
-  .loading {
-    opacity: 0;
-    animation: 0.4s 0.8s forwards fade-in;
+  .spinner-container {
+    margin: auto;
   }
   @keyframes fade-in {
     from {
@@ -45,8 +44,5 @@
     to {
       opacity: 1;
     }
-  }
-  li {
-    list-style-type: none;
   }
 </style>
