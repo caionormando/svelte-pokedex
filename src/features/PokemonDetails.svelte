@@ -19,14 +19,16 @@
     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
     alt="pokeball"
   />
-  <h1>{pokemon.name}</h1>
+  <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
   <div class="details-panel">
     <nav class="details-panel-header">
       {#each itemTitles as itemTitle}
-        <button class="item-header" on:click={() => setItem(itemTitle)}>{itemTitle}</button>
+        <button class="item-header" on:click={() => setItem(itemTitle)}
+          >{itemTitle}</button
+        >
       {/each}
     </nav>
-    <PokemonDetailsText itemTitle={item} pokemonId={pokemonId} />
+    <PokemonDetailsText itemTitle={item} {pokemonId} />
   </div>
 </div>
 
