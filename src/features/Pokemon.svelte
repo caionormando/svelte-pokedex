@@ -1,6 +1,6 @@
 <script>
   import { Router, Route, Link } from "svelte-navigator";
-  import PokemonDetails from "./PokemonDetails.svelte";
+  import PokemonDetails from "./pokemon-details/PokemonDetails.svelte";
 
   export let pokemon;
   let pokemonUrlParts = pokemon.url.split("/");

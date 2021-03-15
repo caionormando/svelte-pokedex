@@ -1,5 +1,5 @@
 <script>
-  import PokemonDetailsText from "./../shared/PokemonDetailsText.svelte";
+  import PokemonDetailsText from "./PokemonDetailsText.svelte";
 
   export let pokemonId;
   export let pokemon;
