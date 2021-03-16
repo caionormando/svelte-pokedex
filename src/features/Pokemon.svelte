@@ -1,6 +1,6 @@
 <script>
   import { Router, Route, Link } from "svelte-navigator";
-  import PokemonDetails from "./PokemonDetails.svelte";
+  import PokemonDetails from "./pokemon-details/PokemonDetails.svelte";
 
   export let pokemon;
   let pokemonUrlParts = pokemon.url.split("/");
@@ -10,7 +10,7 @@
 <Router>
   <Route path="/">
     <div class="pokemon-container">
-      <h1>{pokemon.name.toUpperCase()}</h1>
+      <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
       <div class="image-container">
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
@@ -36,6 +36,13 @@
     background-image: linear-gradient(to bottom right, red, white);
 	margin-bottom: 10px;
 	
+  }
+
+  .pokemon-container h1 {
+    font-family: pokemon-hollow;
+    color: #0663a5;
+    text-shadow: 2px 2px yellow;
+    margin: 0;
   }
 
   .pokemon-container .image-container {

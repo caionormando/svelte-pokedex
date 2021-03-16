@@ -1,8 +1,7 @@
 <script>
-  import { Router, Route } from "svelte-navigator";
   import PokedexHeader from "./core/PokedexHeader.svelte";
   import PokemonsGrid from "./features/PokemonsGrid.svelte";
-  import PokemonDetails from "./features/PokemonDetails.svelte";
+  
   let pokemons;
 </script>
 
