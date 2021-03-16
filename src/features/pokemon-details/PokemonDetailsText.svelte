@@ -4,10 +4,13 @@
   import { onMount } from "svelte";
 
   import PokemonDetailsInfo from "./PokemonDetailsInfo.svelte";
+  import PokemonDetailsType from "./PokemonDetailsType.svelte";
+  import PokemonDetailsSkills from "./PokemonDetailsSkills.svelte";
 
   export let itemTitle;
   export let pokemonId;
   let statusParameters;
+  let types;
 
   function setWeightBarSize(weight) {
     return (weight * 980) / 10000;
@@ -28,6 +31,8 @@
       .then((r) => r.json())
       .then((data) => {
         statusParameters = data;
+        types = data.types.map((obj) => obj.type.name);
+        console.log(types);
       });
   });
 </script>
@@ -38,34 +43,36 @@
       parameterName={"Weight"}
       parameterValue={statusParameters.weight}
       width={setWeightBarSize(statusParameters.weight)}
-      color={'orange'}
+      color={"orange"}
     />
     <PokemonDetailsInfo
       parameterName={"Height"}
       parameterValue={statusParameters.height}
       width={setHeightBarSize(statusParameters.height)}
-      color={'blue'}
+      color={"blue"}
     />
     <PokemonDetailsInfo
       parameterName={"Base exp"}
       parameterValue={statusParameters.base_experience}
       width={setExperienceBarSize(statusParameters.base_experience)}
-      color={'red'}
+      color={"red"}
     />
     <PokemonDetailsInfo
       parameterName={"Strenght"}
       parameterValue={generateRandomValue()}
       width={generateRandomValue()}
-      color={'green'}
+      color={"green"}
     />
     <PokemonDetailsInfo
       parameterName={"Speed"}
       parameterValue={generateRandomValue()}
       width={generateRandomValue()}
-      color={'#25facf'}
+      color={"#25facf"}
     />
   {:else if itemTitle === "Types"}
-    <h3>Type:</h3>
+    <PokemonDetailsType {types} />
+  {:else if itemTitle === "Skills"}
+    <PokemonDetailsSkills />
   {:else}
     <div class="spinner-container">
       <RingLoader size="100" color="#000" unit="px" duration="1s" />

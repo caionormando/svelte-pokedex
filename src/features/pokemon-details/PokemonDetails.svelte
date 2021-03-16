@@ -4,7 +4,7 @@
   export let pokemonId;
   export let pokemon;
   let item = "Status";
-  let itemTitles = ["Status", "Types", "Species", "Moves", "Maps"];
+  let itemTitles = ["Status", "Types", "Skills"];
 
   function setItem(itemTitle) {
     item = itemTitle;
