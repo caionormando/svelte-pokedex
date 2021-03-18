@@ -7,19 +7,17 @@
   import PokemonDetailsType from "./PokemonDetailsType.svelte";
   import PokemonDetailsSkills from "./PokemonDetailsSkills.svelte";
 
+  const weightMax = 10000;
+  const heightMax = 200;
+  const expMax = 500;
+
   export let itemTitle;
   export let pokemonId;
   let statusParameters;
   let types;
 
-  function setWeightBarSize(weight) {
-    return (weight * 980) / 10000;
-  }
-  function setHeightBarSize(height) {
-    return (height * 980) / 200;
-  }
-  function setExperienceBarSize(exp) {
-    return (exp * 980) / 500;
+  function setStatBarSize(stat, maxValue){
+    return (stat * 100) / maxValue;
   }
 
   function generateRandomValue() {
@@ -32,7 +30,6 @@
       .then((data) => {
         statusParameters = data;
         types = data.types.map((obj) => obj.type.name);
-        console.log(types);
       });
   });
 </script>
@@ -42,29 +39,29 @@
     <PokemonDetailsInfo
       parameterName={"Weight"}
       parameterValue={statusParameters.weight}
-      width={setWeightBarSize(statusParameters.weight)}
+      width={setStatBarSize(statusParameters.weight, weightMax)}
       color={"orange"}
     />
     <PokemonDetailsInfo
       parameterName={"Height"}
       parameterValue={statusParameters.height}
-      width={setHeightBarSize(statusParameters.height)}
+      width={setStatBarSize(statusParameters.height, heightMax)}
       color={"blue"}
     />
     <PokemonDetailsInfo
       parameterName={"Base exp"}
       parameterValue={statusParameters.base_experience}
-      width={setExperienceBarSize(statusParameters.base_experience)}
+      width={setStatBarSize(statusParameters.base_experience, expMax)}
       color={"red"}
     />
     <PokemonDetailsInfo
-      parameterName={"Strenght"}
+      parameterName={"Sp.Atk"}
       parameterValue={generateRandomValue()}
       width={generateRandomValue()}
       color={"green"}
     />
     <PokemonDetailsInfo
-      parameterName={"Speed"}
+      parameterName={"Sp.Def"}
       parameterValue={generateRandomValue()}
       width={generateRandomValue()}
       color={"#25facf"}

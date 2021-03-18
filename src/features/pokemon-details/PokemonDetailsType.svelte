@@ -21,11 +21,23 @@
   .image-container {
     display: flex;
     flex-direction: column;
-    align-items: center;;
+    align-items: center;
     margin: auto;
+    max-width: 80%;
   }
 
   .image-container img {
     margin: auto;
+  }
+
+  /* ##################################################################DESKTOP VERSION############################################################################################## */
+
+  @media (min-width: 768px) {
+    .image-container img {
+      width: 50%;
+    }
+    .image-container p {
+      font-size: 3em;
+    }
   }
 </style>

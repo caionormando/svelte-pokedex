@@ -15,11 +15,13 @@
   <span class="home-arrow">&#10148;</span>
 </div>
 <div class="details-container">
-  <img
-    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-    alt="pokeball"
-  />
-  <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
+  <div class="pokemon-container">
+    <img
+      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
+      alt="pokeball"
+    />
+    <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
+  </div>
   <div class="details-panel">
     <nav class="details-panel-header">
       {#each itemTitles as itemTitle}
@@ -55,7 +57,14 @@
     align-items: center;
   }
 
-  .details-container img {
+  .pokemon-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .pokemon-container img {
     width: 60%;
   }
 
@@ -104,8 +113,20 @@
       justify-content: space-around;
     }
 
-    .details-container img {
-      width: 15%;
+    .pokemon-container {
+      width: 45%;
+    }
+    .pokemon-container img {
+      width: 50%;
+    }
+
+    .pokemon-container h1{
+      font-size: 5em;
+    }
+
+    .details-panel {
+      height: 90%;
+      width: 60%;
     }
   }
 </style>
