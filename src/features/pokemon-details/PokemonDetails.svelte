@@ -11,9 +11,6 @@
   }
 </script>
 
-<div class="home-arrow-container">
-  <span class="home-arrow">&#10148;</span>
-</div>
 <div class="details-container">
   <div class="pokemon-container">
     <img
@@ -35,20 +32,6 @@
 </div>
 
 <style>
-  .home-arrow-container {
-    position: relative;
-  }
-
-  .home-arrow-container .home-arrow {
-    position: absolute;
-    -webkit-transform: rotate(180deg);
-    background: -webkit-linear-gradient(#f15a24, #edb825);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    left: 15px;
-    font-size: 2em;
-  }
-
   .details-container {
     width: 100%;
     height: 100%;
