@@ -110,8 +110,8 @@
     .blue-circle {
       height: 80%;
       width: 25%;
-	  top: 5px;
-	  left: 30px;
+      top: 5px;
+      left: 30px;
     }
 
     .red-circle {
